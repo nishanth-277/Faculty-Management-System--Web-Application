@@ -1,0 +1,468 @@
+body, html {
+  height: 100%;
+  font-size: 16px;
+  
+}
+
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* Layout*/
+
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-header {
+  background: radial-gradient(circle,#007bff, #0056b3);
+  padding: 18px 10px; /* Reduced header height */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  overflow: hidden;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  padding: 6px 12px; /* Adjusted padding */
+  text-decoration: none;
+  font-size: 16px; /* Adjusted font size */
+  line-height: 20px; /* Adjusted line height */
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 20px; /* Adjusted logo font size */
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header-right {
+  float: right;
+}
+
+.auth-link {
+  color: white;
+  opacity: 0.9; /* Increased opacity for the buttons */
+  padding: 8px 16px; /* Increased padding for the buttons */
+  margin: 0 4px; /* Adjusted margin */
+  border: 1px solid transparent; /* Added border */
+  border-radius: 4px;
+}
+
+.auth-link:hover {
+  background-color: #f0f0f0; /* Brighter background color on hover */
+  color: #333; /* Darker text color on hover */
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+.header-right input[type="text"] {
+  display: none; /* Hide the search bar */
+}
+
+
+/* Login and Log out page */
+
+.my-main-section {
+  background: linear-gradient(135deg, #f4f5f7, #ccd0d2);
+  padding: 20px 30px;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
+  animation: my-slideDown 1s forwards;
+  width: 500px;
+  align-items: center;
+}
+
+.my-form-group {
+  text-align: center;
+}
+
+.my-form-group select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.my-form-group select::-ms-expand {
+  display: none;
+}
+.my-form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#111" d="M6 8l4 4 4-4"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 1.2em auto;
+}
+
+
+.my-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.my-form-control-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  margin-left: 5%;
+  font-size: 17.5px;
+  align-items: left;
+}
+
+.my-form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.my-btn {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.my-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-btn-outline-info {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Changed login button gradient */
+  color: #fff;
+  border: 2px solid #007bff;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.my-btn-outline-info:hover {
+  background-color: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+
+
+/* Account */
+
+.my-main-section-account {
+  background: linear-gradient(135deg, #f4f5f7, #ccd0d2); 
+  padding: 65px 65px;  
+  height: fit-content;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 30%;
+  animation: my-slideDown 1s forwards;
+  width: 500px;
+}
+
+
+.account-img {
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+/*Home */
+
+.centered {
+  text-align: center;
+}
+
+.paragraph {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.float-container {
+  padding: 20px;
+  display: flex;
+  width: 90%;
+  margin-left: 10px;
+  height: 500px; 
+  overflow: hidden; 
+}
+
+.float-child {
+  width: 100%; 
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.float-child img {
+  width: 100%;
+  height: auto; 
+}
+
+.float-child:hover {
+  transform: scale(1.05);
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 60%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  background: linear-gradient(135deg, #007bff, #0056b3); 
+  border: none;
+  border-radius: 50%;
+}
+
+.next {
+  right: 200px;
+}
+
+.prev {
+  left: 100px;
+}
+
+.prev:hover, .next:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3); 
+}
+
+hr {
+  width: 100%;
+  margin: 20px auto;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+}
+
+@media (max-width: 600px) {
+  .float-child {
+    width: 100%;
+  }
+
+  .prev,
+  .next {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+}
+
+.links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.links .button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.links .button:hover {
+  background-color: #0056b3;
+}
+
+/* Student */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-info {
+  background-color: #007bff; 
+  border-color: #007bff; 
+}
+
+table {
+  width: 75%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+
+/* Faculty */
+.module {
+  margin-bottom: 20px;
+}
+
+.hidden-container {
+  display: none;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.availability-section,
+.remark-section {
+  width: 48%; /* Adjust as needed */
+}
+
+.toggle-label {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.custom-dropdown {
+  width: calc(100% - 20px); /* Adjust for padding */
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  color: #007bff;
+}
+
+.custom-textarea {
+  width: calc(100% - 22px); /* Consider padding */
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+}
+
+.save-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn-gradient {
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to bottom, #0056b3, #003b80);
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-slot {
+  display: flex;
+  align-items: center;
+}
+
+.search-slot label {
+  margin-right: 10px;
+}
+
+.search-slot input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  margin-right: 20px; /
+}
+
+.search-slot button {
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+
+.search-slot button:hover {
+  background: linear-gradient(to bottom, #0056b3, #003b80);
+}
+

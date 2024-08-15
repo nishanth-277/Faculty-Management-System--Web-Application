@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="book-container">
+    <div class="book-image">
+        <img src="../static/giantbook.jpg" alt="Book Cover">
+    </div>
+    <div class="book-details">
+        <h2>My Giant Story Book</h2>
+        <h3>Igloo Books</h3>
+        <p>This unique wall library is a treasure chest for young readers, filled with 24 pocket-sized picture books. Tucked inside this keepsake wallet, each story unfolds a realm of magic, wonder, and imagination. From sharing thrilling escapades with a sloth named Bob, racing to the moon, gliding with unicorns, to joining Pirate Pete on the high seas, there's a tale for every mood and moment.But the magic doesn't end with stories! Six sticker sheets await little hands, adding an interactive element to this already enchanting set. Craft your own scene, decorate, and let creativity lead the way. Measuring 10.67" wide by 17.28" high, this library can be a vibrant centerpiece, standing on a table or hung as a decorative piece on the wall. Whether in the home or classroom, "My Giant Storybook Library" is a delightful blend of reading and play, ensuring a captivating storytime, day after day.</p>
+        <button class="borrow-button">Borrow Book</button>
+        <div class="book-reviews">
+            <h3>Reviews</h3>
+            <div class="user-review">
+                <div class="user-rating">★★★★☆</div>
+                <p class="user-comment">"Great book! I enjoyed every page of it."</p>
+            </div>
+            <div class="user-review">
+                <div class="user-rating">★★★☆☆</div>
+                <p class="user-comment">"Good read, but could have been better."</p>
+            </div>
+            <!-- Add more user reviews here -->
+        </div>
+        <div class="add-review">
+            <h3>Add Your Review</h3>
+            <div class="user-rating" onclick="setRating(event)">
+                <input type="hidden" id="rating" name="rating">
+                <label for="star5" title="5 stars">☆</label>
+                <input type="radio" id="star5" name="star" value="5" style="display:none;">
+                <label for="star4" title="4 stars">☆</label>
+                <input type="radio" id="star4" name="star" value="4" style="display:none;">
+                <label for="star3" title="3 stars">☆</label>
+                <input type="radio" id="star3" name="star" value="3" style="display:none;">
+                <label for="star2" title="2 stars">☆</label>
+                <input type="radio" id="star2" name="star" value="2" style="display:none;">
+                <label for="star1" title="1 star">☆</label>
+                <input type="radio" id="star1" name="star" value="1" style="display:none;">
+            </div>
+            
+            <textarea rows="4" placeholder="Add your comments here"></textarea>
+            <button class="submit-review">Submit Review</button>
+        </div>
+    </div>
+</div>
+<script>
+    function setRating(event) {
+        if (event.target.tagName === 'LABEL') {
+            var selectedStar = event.target;
+            var stars = document.querySelectorAll('.user-rating label');
+            var rating = Array.prototype.indexOf.call(stars, selectedStar) + 1;
+            
+            document.getElementById("rating").value = rating;
+            for (var i = 0; i < stars.length; i++) {
+                if (i < rating) {
+                    stars[i].textContent = '★';
+                } else {
+                    stars[i].textContent = '☆';
+                }
+            }
+        }
+    }
+</script>
+{% endblock content %}

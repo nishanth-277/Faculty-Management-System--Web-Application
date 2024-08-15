@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="centered" style="color: #0056b3; font-size: 24px;">
+    <h1 style="font-size: 28px;">VFA translates to "VIT Faculty Availability System"</h1>
+</div>
+<div class="paragraph" style="color: #222;">
+    <p>The VIT Faculty Availability System streamlines student access to faculty availability in their cabins, enhancing communication and fostering academic support. This user-friendly platform ensures students can efficiently locate and engage with faculty members, promoting collaboration and academic success within the VIT community.</p>
+</div>
+<div class="float-container">
+    <div class="float-child">
+        <a href="{{url_for('book')}}">
+            <img src="../static/vit1.png" alt="giantbook">
+        </a>
+    </div>
+    <div class="float-child">
+        <a href="{{url_for('book')}}">
+            <img src="../static/vit2.png" alt="giantbook">
+        </a>
+    </div>
+    <div class="float-child">
+        <a href="{{url_for('book')}}">
+            <img src="../static/vit3.png" alt="giantbook">
+        </a>
+    </div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("float-child");
+  
+  // Hide all slides
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  
+  // Increment slide index
+  slideIndex++;
+  
+  // Reset slide index if it exceeds number of slides
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }    
+  
+  // Display the current slide
+  slides[slideIndex - 1].style.display = "block";  
+    
+  // Call the function every 2 seconds
+  setTimeout(showSlides, 10000); 
+}
+</script>
+
+<div class="paragraph">
+    <h4 style="color: rgb(144,12,63);">Vellore Institute of Technology (VIT), India</h4>
+    <ul>
+        <li>Ranked among the top 601-700 Universities of the world and one among the top 3 Institutions in India (Shanghai ARWU Ranking 2022)</li>
+        <li>The 8th best University, the 11th best research institution and the 11th best engineering institution in India (NIRF Ranking, Govt. of India 2023)</li>
+        <li>Engineering and Technology subject areas of VIT are the 240th best in the World and the 9th best in India, eight subjects of VIT are within the top 500 in the world (as per QS World University Rankings by Subject 2023)</li>
+        <li>NAAC Accreditation with A++ grade (3.66 out of 4)</li>
+        <li>Ranked within the top 200 Universities in Asia (QS - Asia University Rankings 2023)</li>
+    </ul>
+</div>
+<div class="links">
+    <a href="https://vtopcc.vit.ac.in/vtop/login" class="button">Vtop</a>
+    <a href="https://chennai.vit.ac.in/" class="button">VIT Chennai</a>
+    <a href="https://chennaievents.vit.ac.in/" class="button">VIT Events</a>
+</div>
+</br>
+{% endblock content %}

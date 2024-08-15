@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="my-main-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="my-form-group">
+                <legend class="my-border-bottom my-border-top my-mb-4">Faculty Registration</legend>
+                <div class="my-form-group">
+                    {{ form.name.label(class="my-form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.designation.label(class="my-form-control-label") }}
+                    {% if form.designation.errors %}
+                        {{ form.designation(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.designation.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.designation(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.school.label(class="my-form-control-label") }}
+                    {% if form.school.errors %}
+                        {{ form.school(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.school.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.school(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.cabin.label(class="my-form-control-label") }}
+                    {% if form.cabin.errors %}
+                        {{ form.cabin(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.cabin.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.cabin(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.availability.label(class="my-form-control-label") }}
+                    {% if form.availability.errors %}
+                        {{ form.availability(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.availability.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.availability(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.remark.label(class="my-form-control-label") }}
+                    {% if form.remark.errors %}
+                        {{ form.remark(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.remark.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.remark(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+                <div class="my-form-group">
+                    {{ form.password.label(class="my-form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="my-form-control my-form-control-lg is-invalid my-text-box") }}
+                        <div class="my-invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="my-form-control my-form-control-lg my-text-box") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="my-form-group">
+                {{ form.submit(class="my-btn my-btn-outline-info") }}
+            </div>
+        </form>
+        <small class="my-text-muted">
+            Already Have An Account? <a class="my-ml-2" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Availability</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+{% extends "layout.html" %}
+{% block content %}
+</br>
+<h2>Update Availability Info</h2>
+
+<div class="search-container">
+  <div class="search-slot">
+    <label for="slotSearch">Search Class by Slot:</label>
+    <input type="text" id="slotSearch" placeholder="Enter slot...">
+    <button id="searchButton" class="btn-gradient">Search</button>
+  </div>
+</div>
+
+<div class="main-container hidden">
+  <div class="availability-section">
+    <div class="module">
+      <div class="clickable" id="changeAvailabilityToggle">
+        <div class="toggle-label">Change Availability</div>
+        <div id="changeAvailabilityContainer" class="hidden-container">
+          <label for="availabilityToggle">Availability:</label>
+          <select id="availabilityToggle" class="custom-dropdown">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div class="save-container">
+            <button id="saveAvailabilityBtn" class="btn-gradient">Save</button>
+            <div id="availabilitySuccessMessage" class="hidden success-message">Successfully Saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="remark-section">
+    <div class="module">
+      <div class="clickable" id="addRemarkToggle">
+        <div class="toggle-label">Add Remark</div>
+        <div id="addRemarkContainer" class="hidden-container">
+          <textarea id="remarkText" placeholder="Add your remark here..." class="custom-textarea"></textarea>
+          <div class="save-container">
+            <button id="saveRemarkBtn" class="btn-gradient">Save</button>
+            <div id="remarkSuccessMessage" class="hidden success-message">Successfully Saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const searchButton = document.getElementById("searchButton");
+    const mainContainer = document.querySelector(".main-container");
+    const changeAvailabilityToggle = document.getElementById("changeAvailabilityToggle");
+    const addRemarkToggle = document.getElementById("addRemarkToggle");
+
+    searchButton.addEventListener("click", function() {
+      mainContainer.classList.remove("hidden");
+      changeAvailabilityContainer.classList.add("hidden-container");
+      addRemarkContainer.classList.add("hidden-container");
+    });
+
+    changeAvailabilityToggle.addEventListener("click", function() {
+      mainContainer.classList.remove("hidden");
+      addRemarkContainer.classList.add("hidden-container");
+      changeAvailabilityContainer.classList.toggle("hidden-container");
+    });
+
+    addRemarkToggle.addEventListener("click", function() {
+      mainContainer.classList.remove("hidden");
+      changeAvailabilityContainer.classList.add("hidden-container");
+      addRemarkContainer.classList.toggle("hidden-container");
+    });
+
+    // Prevent the click event from bubbling up when interacting with elements inside the containers
+    const changeAvailabilityContainer = document.getElementById("changeAvailabilityContainer");
+    changeAvailabilityContainer.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+
+    const addRemarkContainer = document.getElementById("addRemarkContainer");
+    addRemarkContainer.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+
+    const saveAvailabilityBtn = document.getElementById("saveAvailabilityBtn");
+    const saveRemarkBtn = document.getElementById("saveRemarkBtn");
+    const availabilitySuccessMessage = document.getElementById("availabilitySuccessMessage");
+    const remarkSuccessMessage = document.getElementById("remarkSuccessMessage");
+
+    saveAvailabilityBtn.addEventListener("click", function() {
+      availabilitySuccessMessage.classList.remove("hidden");
+      const availability = document.getElementById("availabilityToggle").value;
+      const facultyId = '{{ current_user.id }}'; 
+      fetch(`/update_availability/${facultyId}`, {
+          method: 'POST',
+          body: JSON.stringify({ availability: availability }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }).then(response => {
+          if (response.ok) {
+              console.log('Availability updated successfully');
+          } else {
+              console.error('Failed to update availability');
+          }
+      });
+    });
+
+    saveRemarkBtn.addEventListener("click", function() {
+      remarkSuccessMessage.classList.remove("hidden");
+      const remark = document.getElementById("remarkText").value;
+      const facultyId = '{{ current_user.id }}'; // Assuming current_user has id attribute
+      fetch(`/add_remark/${facultyId}`, {
+          method: 'POST',
+          body: JSON.stringify({ remark: remark }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }).then(response => {
+          if (response.ok) {
+              console.log('Remark added successfully');
+          } else {
+              console.error('Failed to add remark');
+          }
+      });
+    });
+  });
+</script>
+
+{% endblock content %}
+
+</body>
+</html>
